@@ -1,0 +1,34 @@
+- hosts: remote
+  gather_facts: false
+  become: true
+  become_user: root
+  vars_prompt:
+    - name: "Package_name"
+      prompt: "Which package Do you want to install?"
+      private: no
+    - name: "Version"
+      prompt: "Which version Do you want to install?"
+      default: "latest"
+      private: no
+    
+  tasks:
+    - name: install packages
+      apt:
+        name: "{{ Package_name }}"
+        state: "{{ Version }}"
+
+      
+      
+         
+
+
+#ansible -m ping remote
+#ansible -m copy -a 'src=test.txt dest=/home/ansible_user.txt'
+# ansible-playbook playbook.yml
+
+# Je veux installer les packages de mon choix proposé lors du lancement du playbook
+# avec la version de mon choix
+
+# promptvar / boucle
+
+# vim, nginx, sl + installer des packages pip
