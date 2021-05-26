@@ -1,7 +1,6 @@
 - hosts: remote
   gather_facts: false
   become: true
-  become_user: root
   vars_prompt:
     - name: "Package_name"
       prompt: "Which package Do you want to install?"
